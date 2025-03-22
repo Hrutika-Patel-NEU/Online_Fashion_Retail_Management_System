@@ -97,8 +97,6 @@ Modern e-commerce platforms often suffer from:
 
 ---
 
-## 🚀 Getting Started
-
 ## 🚀 Project Setup
 
 - Clone the repository using `git clone https://github.com/Hrutika-Patel-NEU/Online_Fashion_Retail_Management_System.git` and navigate into the folder.
