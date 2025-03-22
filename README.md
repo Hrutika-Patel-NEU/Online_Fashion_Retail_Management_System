@@ -102,10 +102,10 @@ Modern e-commerce platforms often suffer from:
 - Clone the repository using `git clone https://github.com/Hrutika-Patel-NEU/Online_Fashion_Retail_Management_System.git` and navigate into the folder.
 - Login to the Oracle Cloud Database as the `admin` user.
 - Execute `ERetailer_Admin_Creation.sql` to create the `ERetailer_DBA` user.
-- Execute `User_Creation_Grants.sql` to create the required users and grant necessary permissions.
 - Login to the database as `ERetailer_DBA` using the credentials:
   - **Username**: `ERetailer_DBA`
   - **Password**: `ERetailerDBA#123`
+- Execute `User_Creation_Grants.sql` to create the required users and grant necessary permissions.
 - Create all database tables by executing the SQL files in the correct sequence as provided in the table creation directory.
 - Login as the appropriate user depending on your access needs using the credentials below:
 
