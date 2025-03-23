@@ -1,3 +1,4 @@
+-- View 1: Customer Order Summary View
 CREATE OR REPLACE VIEW customer_order_summary_view AS
 SELECT 
     u.UserID,
