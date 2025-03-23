@@ -87,6 +87,61 @@ Modern e-commerce platforms often suffer from:
 - Ratings must be between **1 and 5** (integers only).
 
 ---
+## 📦 Views Overview
+
+The following SQL views have been created to support reporting, analysis, and feature functionalities within the system:
+
+
+- `Customer_order_summary`  
+  Summarizes order details for each customer including status and date.
+
+- `Product_inventory`  
+  Provides product-wise inventory data including variation details.
+
+- `Product_review_summary`  
+  Lists all product reviews with associated customer and rating info.
+
+- `Low_stock_alert`  
+  Flags product variations where stock is below a defined threshold.
+
+- `Category_wise_sales_summary`  
+  Summarizes sales and revenue grouped by product category.
+
+- `Shopping_cart_details`  
+  Displays current items in each user's shopping cart.
+
+- `Customer_order_history`  
+  Shows complete order history for a specific customer.
+
+- `Customer_reviews`  
+  Lists reviews written by each customer with timestamps.
+
+- `User_saved_addresses`  
+  Shows addresses saved by users for delivery and billing.
+
+- `Top_selling_products`  
+  Lists the highest-selling products based on quantity ordered.
+
+- `Top_customers`  
+  Identifies customers with the highest number of orders or spend.
+
+- `Product_variation`  
+  Displays all product variation details like size and color.
+
+- `Order_payment_summary`  
+  Summarizes payment methods and statuses for all orders.
+
+- `Brand_product_summary`  
+  Shows brands with their associated product counts.
+
+- `User_public_info`  
+  Displays non-sensitive user information for public view (excluding passwords).
+
+- `Admin_all_orders_with_customer_info`  
+  Full order details view for admin use, including customer contact data.
+
+- `Admin_all_reviews_with_product_and_customer_info`  
+  Admin-level view to monitor all reviews with full user and product context.
 
 ## 🛠️ Tools & Technologies
 
@@ -120,7 +175,8 @@ Modern e-commerce platforms often suffer from:
 ## 📂 Folder Structure
 ```
 Online_Fashion_Retail_Management_System/
-├── DDL/                          
+├── DDL/
+├── VIEWS/                          
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -129,6 +185,9 @@ Online_Fashion_Retail_Management_System/
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and inserting initial data.
+
+  - `VIEWS/`  
+  ▸ Contains all **SQL view definitions**, including SELECT-based virtual tables designed for reporting, analytics, and simplifying complex queries across the database.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
