@@ -152,7 +152,7 @@ Online_Fashion_Retail_Management_System/
 | Name                      | NUID                    |
 |---------------------------|-------------------------|
 | Hrutika Harshadbhai Patel | 002059994               |
-| Dhruv Baraiya             |                         |
+| Dhruv Baraiya             | 002306624               |
 | Adarsh Akhouri            |                         |
 | Vishwesh GopiKrishnan     |                         |
 
