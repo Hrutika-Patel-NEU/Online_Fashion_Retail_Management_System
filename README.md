@@ -183,7 +183,7 @@ Online_Fashion_Retail_Management_System/
 ├── User_Creation_Grants.sql 
 ```
 - `DDL/`  
-  ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and inserting initial data.
+  ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
