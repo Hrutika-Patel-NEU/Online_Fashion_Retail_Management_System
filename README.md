@@ -175,8 +175,7 @@ The following SQL views have been created to support reporting, analysis, and fe
 ## 📂 Folder Structure
 ```
 Online_Fashion_Retail_Management_System/
-├── DDL/
-├── VIEWS/                          
+├── DDL/                          
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -185,9 +184,6 @@ Online_Fashion_Retail_Management_System/
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and inserting initial data.
-
-  - `VIEWS/`  
-  ▸ Contains all **SQL view definitions**, including SELECT-based virtual tables designed for reporting, analytics, and simplifying complex queries across the database.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
