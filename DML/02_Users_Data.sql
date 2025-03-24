@@ -1,3 +1,15 @@
+BEGIN
+   -- Cleanup existing user records
+   DELETE FROM Users;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Users table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Users table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO Users (UserID, FirstName, LastName, Email, PasswordHash, PhoneNumber, Role, UserTierID) VALUES (1, 'Riya', 'Kumar', 'riya.kumar@example.com', 'hashed_password_2', '980-111-2234', 'Admin', 5);
 INSERT INTO Users (UserID, FirstName, LastName, Email, PasswordHash, PhoneNumber, Role, UserTierID) VALUES (2, 'Sara', 'Ali', 'sara.ali@example.com', 'hashed_password_8', '980-111-2240', 'Admin', 5);
 INSERT INTO Users (UserID, FirstName, LastName, Email, PasswordHash, PhoneNumber, Role, UserTierID) VALUES (3, 'Amit', 'Shah', 'amit.shah@example.com', 'hashed_password_1', '980-111-2233', 'Customer', 1);
