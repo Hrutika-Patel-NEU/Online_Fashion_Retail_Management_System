@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product attribute values
+   DELETE FROM ProductAttributeValues;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ProductAttributeValues table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ProductAttributeValues table cleanup: ' || SQLERRM);
+END;
+/
+
+
 -- AttributeID 1: Material
 INSERT INTO ProductAttributeValues (ValueID, AttributeID, ValueName) VALUES (1, 1, 'Cotton');
 INSERT INTO ProductAttributeValues (ValueID, AttributeID, ValueName) VALUES (2, 1, 'Polyester');
