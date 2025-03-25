@@ -185,7 +185,8 @@ The following SQL views have been created to support reporting, analysis, and fe
 ## 📂 Folder Structure
 ```
 Online_Fashion_Retail_Management_System/
-├── DDL/                          
+├── DDL/  
+├── DFD_Diagrams/                       
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -194,6 +195,9 @@ Online_Fashion_Retail_Management_System/
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
+
+- `DFD_Diagrams/`   
+▸ Contains all **Data Flow Diagrams (DFDs)** representing the logical flow of data across key modules such as Customer Onboarding, Order Management, Inventory, Payment, Product Management, and Reporting.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
@@ -218,7 +222,7 @@ Online_Fashion_Retail_Management_System/
 |---------------------------|-------------------------|
 | Hrutika Harshadbhai Patel | 002059994               |
 | Dhruv Baraiya             | 002306624               |
-| Adarsh Akhouri            |                         |
-| Vishwesh GopiKrishnan     | 002309454                        |
+| Adarsh Akhouri            | 002300127               |
+| Vishwesh GopiKrishnan     | 002309454               |
 
 ---
