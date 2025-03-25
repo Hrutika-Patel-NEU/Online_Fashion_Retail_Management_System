@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all color records
+   DELETE FROM Colors;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Colors table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Colors table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO Colors (ColorID, ColorName) VALUES (1, 'Black');
 INSERT INTO Colors (ColorID, ColorName) VALUES (2, 'White');
 INSERT INTO Colors (ColorID, ColorName) VALUES (3, 'Red');
