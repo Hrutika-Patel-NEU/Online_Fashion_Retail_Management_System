@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all order records
+   DELETE FROM Orders;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Orders table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Orders table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO Orders (OrderID, UserID, Status, PaymentMethod, PaymentStatus, CreatedAt, UpdatedAt)
 VALUES (1, 1, 'Cancelled', 'Cash on Delivery', 'Paid', 
 TO_TIMESTAMP('2023-02-23 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
