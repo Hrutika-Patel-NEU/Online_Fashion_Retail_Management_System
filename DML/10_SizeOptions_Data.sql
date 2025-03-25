@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all size option records
+   DELETE FROM SizeOptions;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('SizeOptions table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during SizeOptions table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO SizeOptions (SizeID, SizeName, SizeDescription) VALUES 
 (1, 'XS', 'Extra Small - Typically for chest size 32-34 inches');
 
