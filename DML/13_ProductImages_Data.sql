@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product image records
+   DELETE FROM ProductImages;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ProductImages table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ProductImages table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO ProductImages (ProductImageID, VariationID, ProductImageUrl) VALUES (1, 1, 'https://example.com/images/products/1.jpg');
 INSERT INTO ProductImages (ProductImageID, VariationID, ProductImageUrl) VALUES (2, 2, 'https://example.com/images/products/2.jpg');
 INSERT INTO ProductImages (ProductImageID, VariationID, ProductImageUrl) VALUES (3, 3, 'https://example.com/images/products/3.jpg');
