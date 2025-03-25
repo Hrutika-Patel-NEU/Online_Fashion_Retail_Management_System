@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product variation records
+   DELETE FROM ProductVariations;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ProductVariations table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ProductVariations table cleanup: ' || SQLERRM);
+END;
+/
+
+
 -- Variations for ProductID 1 (Urban Graphic Tee)
 INSERT INTO ProductVariations (VariationID, ProductID, SizeID, ColorID, StockQuantity) VALUES (1, 1, 2, 1, 100);  -- S, Black
 INSERT INTO ProductVariations (VariationID, ProductID, SizeID, ColorID, StockQuantity) VALUES (2, 1, 3, 2, 80);   -- M, White
