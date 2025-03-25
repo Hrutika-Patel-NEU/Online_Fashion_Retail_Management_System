@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all address records
+   DELETE FROM Address;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Address table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Address table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO Address (AddressID, UserID, AddressLine1, AddressLine2, ZipCode, City, State, Country) VALUES 
 (1, 1, '101 Red Lane', 'Apt 5', '560100', 'Bangalore', 'Karnataka', 'India');
 INSERT INTO Address (AddressID, UserID, AddressLine1, AddressLine2, ZipCode, City, State, Country) VALUES 
