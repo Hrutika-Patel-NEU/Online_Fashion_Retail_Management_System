@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all shopping cart records
+   DELETE FROM ShoppingCart;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ShoppingCart table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ShoppingCart table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO ShoppingCart (CartID, UserID, VariationID, Quantity, CreatedAt, UpdatedAt)
 VALUES (1, 1, 81, 2,
 TO_TIMESTAMP('2024-03-02 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
