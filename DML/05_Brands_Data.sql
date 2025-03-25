@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all brand records
+   DELETE FROM Brands;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Brands table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Brands table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO Brands (BrandID, BrandName, BrandDescription) VALUES 
 (1, 'UrbanTrendz', 'UrbanTrendz offers contemporary street styles that blend high fashion with comfort.');
 INSERT INTO Brands (BrandID, BrandName, BrandDescription) VALUES 
