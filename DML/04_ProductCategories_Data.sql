@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product category records
+   DELETE FROM ProductCategories;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ProductCategories table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ProductCategories table cleanup: ' || SQLERRM);
+END;
+/
+
+
 INSERT INTO ProductCategories (CategoryID, CategoryName, CategoryDescription, CategoryType, CategoryImage) VALUES 
 (1, 'Tops', 'Includes a variety of tops from casual tees to formal shirts.', 'Clothing', 'tops.jpg');
 INSERT INTO ProductCategories (CategoryID, CategoryName, CategoryDescription, CategoryType, CategoryImage) VALUES 
