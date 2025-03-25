@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product records
+   DELETE FROM Products;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('Products table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during Products table cleanup: ' || SQLERRM);
+END;
+/
+
+
 -- Tops Category (ID 1) - Brands: UrbanTrendz, GlamourShine, CasualCorner, VintageVibes, SportiFlex
 INSERT INTO Products (ProductID, CategoryID, BrandID, ProductName, Description, Price, SizeGuide, MaterialDetails, CareInstructions, IsAvailable) VALUES 
 (1, 1, 1, 'Urban Graphic Tee', 'Stylish and casual graphic tees for everyday wear.', 25.99, 'Fits true to size.', '100% cotton', 'Machine wash cold.', 'Y');
