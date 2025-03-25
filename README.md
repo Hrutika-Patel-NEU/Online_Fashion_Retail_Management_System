@@ -186,7 +186,8 @@ The following SQL views have been created to support reporting, analysis, and fe
 ```
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
-├── DFD_Diagrams/                       
+├── DFD_Diagrams/   
+├── DML/               
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -194,10 +195,13 @@ Online_Fashion_Retail_Management_System/
 ├── User_Creation_Grants.sql 
 ```
 - `DDL/`  
-  ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
+▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
 
 - `DFD_Diagrams/`   
 ▸ Contains all **Data Flow Diagrams (DFDs)** representing the logical flow of data across key modules such as Customer Onboarding, Order Management, Inventory, Payment, Product Management, and Reporting.
+
+- `DML/`
+▸ Contains all **DML (Data Manipulation Language)** scripts for inserting, updating, deleting, and merging data into the database tables.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
