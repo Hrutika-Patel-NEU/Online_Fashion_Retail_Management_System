@@ -224,5 +224,4 @@ Online_Fashion_Retail_Management_System/
 | Dhruv Baraiya             | 002306624               |
 | Adarsh Akhouri            | 002300127               |
 | Vishwesh GopiKrishnan     | 002309454               |
-
 ---
