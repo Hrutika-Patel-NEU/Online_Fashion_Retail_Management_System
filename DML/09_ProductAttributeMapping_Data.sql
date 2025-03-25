@@ -1,3 +1,15 @@
+BEGIN
+   -- Delete all product attribute mappings
+   DELETE FROM ProductAttributeMapping;
+   COMMIT;
+   DBMS_OUTPUT.PUT_LINE('ProductAttributeMapping table cleaned successfully.');
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error during ProductAttributeMapping table cleanup: ' || SQLERRM);
+END;
+/
+
+
 -- ProductID 1 (Urban Graphic Tee) - Material: Cotton (1), Fit: Regular (7), Sleeve Length: Half (12), Neck Type: Round Neck (16), Pattern: Printed (23)
 INSERT INTO ProductAttributeMapping (ProductID, ValueID) VALUES (1, 1);
 INSERT INTO ProductAttributeMapping (ProductID, ValueID) VALUES (1, 7);
