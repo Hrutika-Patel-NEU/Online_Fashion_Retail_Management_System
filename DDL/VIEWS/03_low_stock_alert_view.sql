@@ -1,4 +1,4 @@
--- View 4: Low Stock Alert View
+-- View 3: Low Stock Alert View
 CREATE OR REPLACE VIEW low_stock_alert_view AS
 SELECT 
     v.VariationID,
