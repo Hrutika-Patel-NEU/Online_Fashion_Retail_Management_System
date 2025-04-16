@@ -1,4 +1,4 @@
--- View 10: Top Selling Products View
+-- View 09: Top Selling Products View
 CREATE OR REPLACE VIEW top_selling_products_view AS
 SELECT 
     p.ProductID,
