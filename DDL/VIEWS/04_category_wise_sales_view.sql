@@ -1,4 +1,4 @@
--- View 5: Category-wise Sales Summary View
+-- View 4: Category-wise Sales Summary View
 CREATE OR REPLACE VIEW category_wise_sales_view AS
 SELECT 
     cat.CategoryName,
