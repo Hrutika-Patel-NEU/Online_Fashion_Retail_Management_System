@@ -1,4 +1,4 @@
--- 18_CheckStockBeforeOrder.sql
+-- 18_Check_Stock_Before_Order.sql
 -- Prevents insertion into ORDERLINEITEMS if requested quantity exceeds stock.
 
 CREATE OR REPLACE TRIGGER TRG_CheckStockBeforeOrder
