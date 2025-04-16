@@ -1,4 +1,4 @@
--- View 17: Admin View - All Reviews with Product and Customer Info
+-- View 15: Admin View - All Reviews with Product and Customer Info
 CREATE OR REPLACE VIEW admin_all_reviews_view AS
 SELECT 
     r.ReviewID,
