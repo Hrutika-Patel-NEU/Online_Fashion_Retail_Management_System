@@ -158,42 +158,75 @@ The following SQL views have been created to support reporting, analysis, and fe
 
 The following trigger scripts are used to enforce business rules, automate actions, and maintain audit trails in the system:
 
-- `01_CreatedAt_and_UpdatedAt_Triggers_For_Users.sql` – Creates trigger for auto timestamping in `USERS` table.
-- `02_CreatedAt_and_UpdatedAt_Triggers_For_Usertiers.sql` – Creates trigger for timestamp management in `USERTIERS`.
-- `03_CreatedAt_and_UpdatedAt_Triggers_For_Products.sql` – Adds trigger for tracking create/update times in `PRODUCTS`.
-- `04_CreatedAt_and_UpdatedAt_Triggers_For_Productvariations.sql` – Maintains audit fields for `PRODUCTVARIATIONS`.
-- `05_CreatedAt_and_UpdatedAt_Triggers_For_Productimages.sql` – Adds created/updated timestamps to `PRODUCTIMAGES`.
-- `06_CreatedAt_and_UpdatedAt_Triggers_For_Sizeoptions.sql` – Trigger to track changes in `SIZEOPTIONS`.
-- `07_CreatedAt_and_UpdatedAt_Triggers_For_Orders.sql` – Ensures `ORDERS` table captures timestamps correctly.
-- `08_CreatedAt_and_UpdatedAt_Triggers_For_Orderlineitems.sql` – Applies timestamp automation to `ORDERLINEITEMS`.
-- `09_CreatedAt_and_UpdatedAt_Triggers_For_Address.sql` – Manages audit fields for `ADDRESS` table.
-- `10_CreatedAt_and_UpdatedAt_Triggers_For_Shoppingcart.sql` – Tracks timestamp changes in `SHOPPINGCART`.
-- `11_CreatedAt_and_UpdatedAt_Triggers_For_Reviews.sql` – Creates audit triggers for `REVIEWS`.
-- `12_CreatedAt_and_UpdatedAt_Triggers_For_Brands.sql` – Trigger for timestamps on `BRANDS` table.
-- `13_CreatedAt_and_UpdatedAt_Triggers_For_Productattributes.sql` – Timestamp tracking for `PRODUCTATTRIBUTES`.
-- `14_CreatedAt_and_UpdatedAt_Triggers_For_Productattributevalues.sql` – Audit fields trigger for attribute values.
-- `15_CreatedAt_and_UpdatedAt_Triggers_For_Productattributemapping.sql` – Trigger for mapping table timestamps.
-- `16_CreatedAt_and_UpdatedAt_Triggers_For_Productcategories.sql` – Timestamp updates on category changes.
-- `17_CreatedAt_and_UpdatedAt_Triggers_For_Colors.sql` – Auto audit fields for `COLORS` table.
-- `18_Check_Stock_Before_Order.sql` – Prevents orders if product stock is insufficient.
-- `19_Update_Stock_On_Order.sql` – Deducts stock when an order is placed.
-- `20_Collapse_Duplicate_Cart_Entries.sql` – Merges duplicate cart entries into one.
-- `21_Prevent_Add_Unavailable_Products.sql` – Restricts adding unavailable items to cart.
-- `22_Require_Image_Before_Publishing.sql` – Ensures products have an image before publishing.
-- `23_Apply_User_Tier_Discount.sql` – Automatically applies discount based on user tier.
-- `24_Update_User_Tier_After_Checkout.sql` – Updates user tier after successful checkout.
-- `25_Verified_Buyer_Only.sql` – Allows review submission only from verified buyers.
-- `26_One_Review_Per_User_Product.sql` – Restricts users to one review per product.
+- `01_CreatedAt_and_UpdatedAt_Triggers_For_Users.sql`  
+  Creates trigger for auto timestamping in `USERS` table.
+
+- `02_CreatedAt_and_UpdatedAt_Triggers_For_Usertiers.sql`  
+  Creates trigger for timestamp management in `USERTIERS`.
+- `03_CreatedAt_and_UpdatedAt_Triggers_For_Products.sql`  
+Adds trigger for tracking create/update times in `PRODUCTS`.
+- `04_CreatedAt_and_UpdatedAt_Triggers_For_Productvariations.sql`  
+Maintains audit fields for `PRODUCTVARIATIONS`.
+- `05_CreatedAt_and_UpdatedAt_Triggers_For_Productimages.sql`  
+Adds created/updated timestamps to `PRODUCTIMAGES`.
+- `06_CreatedAt_and_UpdatedAt_Triggers_For_Sizeoptions.sql`  
+Trigger to track changes in `SIZEOPTIONS`.
+- `07_CreatedAt_and_UpdatedAt_Triggers_For_Orders.sql`  
+Ensures `ORDERS` table captures timestamps correctly.
+- `08_CreatedAt_and_UpdatedAt_Triggers_For_Orderlineitems.sql`  
+Applies timestamp automation to `ORDERLINEITEMS`.
+- `09_CreatedAt_and_UpdatedAt_Triggers_For_Address.sql`  
+Manages audit fields for `ADDRESS` table.
+- `10_CreatedAt_and_UpdatedAt_Triggers_For_Shoppingcart.sql`  
+Tracks timestamp changes in `SHOPPINGCART`.
+- `11_CreatedAt_and_UpdatedAt_Triggers_For_Reviews.sql`  
+Creates audit triggers for `REVIEWS`.
+- `12_CreatedAt_and_UpdatedAt_Triggers_For_Brands.sql`  
+Trigger for timestamps on `BRANDS` table.
+- `13_CreatedAt_and_UpdatedAt_Triggers_For_Productattributes.sql`  
+Timestamp tracking for `PRODUCTATTRIBUTES`.
+- `14_CreatedAt_and_UpdatedAt_Triggers_For_Productattributevalues.sql`  Audit fields trigger for attribute values.
+- `15_CreatedAt_and_UpdatedAt_Triggers_For_Productattributemapping.sql`  Trigger for mapping table timestamps.
+- `16_CreatedAt_and_UpdatedAt_Triggers_For_Productcategories.sql`   Timestamp updates on category changes.
+- `17_CreatedAt_and_UpdatedAt_Triggers_For_Colors.sql`  
+Auto audit fields for `COLORS` table.
+- `18_Check_Stock_Before_Order.sql`  
+Prevents orders if product stock is insufficient.
+- `19_Update_Stock_On_Order.sql`  
+Deducts stock when an order is placed.
+- `20_Collapse_Duplicate_Cart_Entries.sql`  
+Merges duplicate cart entries into one.
+- `21_Prevent_Add_Unavailable_Products.sql`  
+Restricts adding unavailable items to cart.
+- `22_Require_Image_Before_Publishing.sql`  
+Ensures products have an image before publishing.
+- `23_Apply_User_Tier_Discount.sql`  
+Automatically applies discount based on user tier.
+- `24_Update_User_Tier_After_Checkout.sql`  
+Updates user tier after successful checkout.
+- `25_Verified_Buyer_Only.sql`  
+Allows review submission only from verified buyers.
+- `26_One_Review_Per_User_Product.sql`  
+Restricts users to one review per product.
 ---
 ## 📊 Reports Overview
 
 The following report scripts generate analytical summaries and insights from the retail system database:
 
-- `01_Order_Summary_By_User_Tier.sql` – Summarizes total orders and revenue by user tier.
-- `02_Shipping_Address_Usage_Frequency.sql` – Displays how frequently different shipping addresses are used.
-- `03_Discount_Utilization_Report.sql` – Analyzes usage patterns of discount codes across transactions.
-- `04_Customer_Lifetime_Value_Report.sql` – Calculates the total lifetime value of each customer based on their purchases.
-- `05_Most_Reviewed_Products_Report.sql` – Lists products with the highest number of reviews and their average rating.
+- `01_Order_Summary_By_User_Tier.sql`  
+Summarizes total orders and revenue by user tier.
+
+- `02_Shipping_Address_Usage_Frequency.sql`  
+Displays how frequently different shipping addresses are used.
+
+- `03_Discount_Utilization_Report.sql`  
+Analyzes usage patterns of discount codes across transactions.
+
+- `04_Customer_Lifetime_Value_Report.sql`  
+Calculates the total lifetime value of each customer based on their purchases.
+
+- `05_Most_Reviewed_Products_Report.sql`  
+Lists products with the highest number of reviews and their average rating.
 
 --------
 ## 🛠️ Tools & Technologies
