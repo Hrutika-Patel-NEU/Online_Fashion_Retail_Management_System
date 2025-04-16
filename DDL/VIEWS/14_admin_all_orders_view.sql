@@ -1,4 +1,4 @@
--- View 16: Admin View - All Orders with Customer Info
+-- View 14: Admin View - All Orders with Customer Info
 CREATE OR REPLACE VIEW admin_all_orders_view AS
 SELECT 
     o.OrderID,
