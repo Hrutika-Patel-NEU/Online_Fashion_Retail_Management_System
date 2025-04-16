@@ -1,9 +1,9 @@
--- 03_Discount_Utilization_Report.sql
--- Shows orders placed by user tier, correlating how much discount was utilized via DISCOUNTRATE
+-- 03_Discount_Utilization_Report_Procedure.sql
+-- Procedure: DISCOUNT_UTILIZATION_REPORT
+-- Purpose: Shows orders placed by user tier and how much discount was applied.
+-- Access Control: EXECUTE permission granted to ECOM_APP_REPORT_USER and ECOM_APP_ADMIN.
 
-SET SERVEROUTPUT ON;
-
-DECLARE
+CREATE OR REPLACE PROCEDURE "ERETAILER_DBA"."DISCOUNT_UTILIZATION_REPORT" AS
     CURSOR discount_cursor IS
         SELECT
             T.TIERNAME,
@@ -49,4 +49,8 @@ BEGIN
     CLOSE discount_cursor;
 END;
 /
+
+-- Grant EXECUTE to admin and report user roles
+GRANT EXECUTE ON "ERETAILER_DBA"."DISCOUNT_UTILIZATION_REPORT" TO "ECOM_APP_REPORT_USER";
+GRANT EXECUTE ON "ERETAILER_DBA"."DISCOUNT_UTILIZATION_REPORT" TO "ECOM_APP_ADMIN";
 
