@@ -1,4 +1,4 @@
--- View 12: Product Variation View
+-- View 10: Product Variation View
 CREATE OR REPLACE VIEW product_variation_view AS
 SELECT 
     v.VariationID,
