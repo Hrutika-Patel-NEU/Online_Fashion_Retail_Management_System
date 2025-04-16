@@ -1,9 +1,9 @@
--- 02_Shipping_Address_Usage_Frequency.sql
--- Analyzes the ADDRESS table to identify frequently used shipping destinations (by ZIP, City, State, Country)
+-- 02_Shipping_Address_Usage_Frequency_Procedure.sql
+-- Procedure: SHIPPING_ADDRESS_USAGE_REPORT
+-- Purpose: Analyzes the ADDRESS table to identify frequently used shipping destinations.
+-- Access Control: EXECUTE permission granted to ECOM_APP_REPORT_USER and ECOM_APP_ADMIN.
 
-SET SERVEROUTPUT ON;
-
-DECLARE
+CREATE OR REPLACE PROCEDURE "ERETAILER_DBA"."SHIPPING_ADDRESS_USAGE_REPORT" AS
     CURSOR address_usage_cursor IS
         SELECT
             ZIPCODE,
@@ -41,3 +41,7 @@ BEGIN
     CLOSE address_usage_cursor;
 END;
 /
+
+-- Grant EXECUTE to admin and report user roles
+GRANT EXECUTE ON "ERETAILER_DBA"."SHIPPING_ADDRESS_USAGE_REPORT" TO "ECOM_APP_REPORT_USER";
+GRANT EXECUTE ON "ERETAILER_DBA"."SHIPPING_ADDRESS_USAGE_REPORT" TO "ECOM_APP_ADMIN";
