@@ -1,0 +1,29 @@
+-- 23_Apply_User_Tier_Discount.sql
+-- Applies tier-based discount to SOLDPRICE during order line insert
+
+CREATE OR REPLACE TRIGGER "ERETAILER_DBA"."TRG_ApplyUserTierDiscount"
+BEFORE INSERT ON "ERETAILER_DBA"."ORDERLINEITEMS"
+FOR EACH ROW
+DECLARE
+    v_price NUMBER;
+    v_discount NUMBER;
+BEGIN
+    -- Get product price (assuming from PRODUCTS via PRODUCTVARIATIONS)
+    SELECT P.PRICE
+    INTO v_price
+    FROM "ERETAILER_DBA"."PRODUCTS" P
+    JOIN "ERETAILER_DBA"."PRODUCTVARIATIONS" V ON P.PRODUCTID = V.PRODUCTID
+    WHERE V.VARIATIONID = :NEW.VARIATIONID;
+
+    -- Get user discount
+    SELECT T.DISCOUNTRATE
+    INTO v_discount
+    FROM "ERETAILER_DBA"."USERS" U
+    JOIN "ERETAILER_DBA"."USERTIERS" T ON U.USERTIERID = T.TIERID
+    WHERE U.USERID = (
+        SELECT USERID FROM "ERETAILER_DBA"."ORDERS" WHERE ORDERID = :NEW.ORDERID
+    );
+
+    :NEW.SOLDPRICE := v_price * (1 - v_discount / 100);
+END;
+/
