@@ -1,4 +1,4 @@
--- View 6: Shopping Cart Details View
+-- View 5: Shopping Cart Details View
 CREATE OR REPLACE VIEW shopping_cart_details_view AS
 SELECT 
     sc.UserID,
