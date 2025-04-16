@@ -43,48 +43,58 @@ Modern e-commerce platforms often suffer from:
   - ⚡ Fast search and filtering.
 
 ### 🔐 Role-Based Access Control
-- `Admin`: Manage products, orders, and inventory.
-- `Customer`: Place orders, manage addresses, submit reviews.
+- `Admin`: Full access to manage products, users, orders, and inventory.
+- `Standard User`: Place orders, manage addresses, submit reviews, and maintain cart.
+- `Business Analytics User`: Access views and reports for insights and performance tracking.
+- `Guest User`: Limited browsing access to public product and category data.
 
 ---
 
 ## 📋 Business Rules
 
-### 👥 User & Authentication
-- Email, Name, and Phone are required and unique.
-- Role must be `'Customer'` or `'Admin'`.
-- Users are assigned a `Tier` (Default, Silver, Gold, Platinum) with tier-based discounts.
-- One account per email/phone.
+### 👥 User & Role Rules
+- `Email`, `First Name`, `Last Name`, and `Phone Number` are mandatory for user registration.
+- Email and Phone Number must be **unique** and follow valid formats.
+- User Role must be one of the following:
+   - `Admin`: Full system management.
+   - `Standard User`: Can shop and place orders.
+   - `Business Analytics User`: Read-only access to data and reports.
+   - `Guest User`: Limited access, browsing only.
+- A user cannot register multiple times with the same email or phone number.
+- Each user is assigned a **Tier**: `Standard`, `Bronze`, `Silver`, `Gold`, or `Platinum`.
 
-### 🏷️ Product & Category
-- Each product must belong to a valid `Category` and `Brand`.
-- Product names must be **non-empty** and **unique per brand**.
-- `Perishable` products **cannot** be discounted.
-- Archived or unavailable products are hidden from customers.
-- **Out-of-stock** items are not shown or purchasable.
+### 🏷️ Product & Category Rules
+- Each product must belong to a valid **Category** and **Brand** (enforced via foreign keys).
+- Product name must be **non-empty** and **unique within its brand**.
+- Products marked as `IsArchived = 'Y'` or `IsAvailable = 'N'` are excluded from storefront, cart, and checkout.
+- Out-of-stock products **cannot** be added to the cart or ordered.
 
-### 🎨 Product Variations & Images
-- Stock quantity must be ≥ 0.
-- Variations are uniquely identified by `Product`, `Size`, and `Color`.
-- A **minimum of one image** is required to make a variation public.
-- Images are tied to **variations**, not base products.
+### 🎨 Product Variations, Attributes & Images
+- Stock quantity for all product variations must be `≥ 0`.
+- Each product variation must be **uniquely identified** by `Product`, `Size`, and `Color`.
+- At least **one image** is required per variation before it can be made publicly visible.
+- Images are associated with **product variations**, not base products.
 
-### 🛒 Cart & Orders
-- Cart items must have quantity ≥ 1 (default is 1).
-- No duplicate cart entries for same product per user.
-- Only active, in-stock items can be added to the cart.
-- Cart is auto-cleared after order placement.
-- Orders require line items with quantity ≥ 1.
-- **Selling Price** is computed as:  
-  `SellingPrice = Price - (Price * UserTier.DiscountRate / 100)`
+### 🛒 Cart Rules
+- Cart item quantity must be `≥ 1` and defaults to `1`.
+- A user cannot have **duplicate cart entries** for the same product variation.
+- Only **active and in-stock products** can be added to the cart.
+- Cart is **automatically cleared** after order placement (handled at the application layer).
 
-### 💳 Payments
-- Every order must include a valid **payment method** and **payment status**.
+### 📦 Order Rules
+- Order line items must have quantity `≥ 1`.
+- Discounts are applied at checkout using the formula:  
+   `SellingPrice = Price - (Price * UserTier.DiscountRate / 100)`
+- A user’s discount eligibility is dynamically determined based on their assigned `UserTier`.
 
-### ⭐ Reviews
-- Only verified buyers can submit reviews.
-- Only one review per product per user.
-- Ratings must be between **1 and 5** (integers only).
+### 💳 Payment Rules
+- All orders must have a valid **payment method** and **payment status** recorded.
+
+### ⭐ Review Rules
+- Only users who have **purchased** a product can submit a review (verified buyers).
+- A user can submit **only one review per product**.
+- Review ratings must be **integers between 1 and 5**.
+
 
 ---
 ## 📦 Views Overview
@@ -175,7 +185,9 @@ The following SQL views have been created to support reporting, analysis, and fe
 ## 📂 Folder Structure
 ```
 Online_Fashion_Retail_Management_System/
-├── DDL/                          
+├── DDL/  
+├── DFD_Diagrams/   
+├── DML/               
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -184,6 +196,12 @@ Online_Fashion_Retail_Management_System/
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
+
+- `DFD_Diagrams/`   
+  ▸ Contains all **Data Flow Diagrams (DFDs)** representing the logical flow of data across key modules such as Customer Onboarding, Order Management, Inventory, Payment, Product Management, and Reporting.
+
+- `DML/`   
+▸ Contains all **DML (Data Manipulation Language)** scripts for inserting, updating, deleting, and merging data into the database tables.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
@@ -208,7 +226,6 @@ Online_Fashion_Retail_Management_System/
 |---------------------------|-------------------------|
 | Hrutika Harshadbhai Patel | 002059994               |
 | Dhruv Baraiya             | 002306624               |
-| Adarsh Akhouri            |                         |
-| Vishwesh GopiKrishnan     |                         |
-
+| Adarsh Akhouri            | 002300127               |
+| Vishwesh GopiKrishnan     | 002309454               |
 ---
