@@ -1,4 +1,4 @@
--- View 15: User Basic Info View
+-- View 13: User Basic Info View
 CREATE OR REPLACE VIEW user_basic_info_view AS
 SELECT 
     UserID,
