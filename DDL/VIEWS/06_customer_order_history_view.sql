@@ -1,4 +1,4 @@
--- View 7: Customer Order History View
+-- View 6: Customer Order History View
 CREATE OR REPLACE VIEW customer_order_history_view AS
 SELECT 
     o.OrderID,
