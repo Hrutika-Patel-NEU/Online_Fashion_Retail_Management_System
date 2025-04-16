@@ -10,3 +10,4 @@ JOIN ProductVariations v ON oi.VariationID = v.VariationID
 JOIN Products p ON v.ProductID = p.ProductID
 GROUP BY p.ProductID, p.ProductName
 ORDER BY TotalSold DESC;
+
