@@ -23,7 +23,7 @@ EXCEPTION
     WHEN OTHERS THEN
         RETURN 'FALSE'; -- default to safe failure
 END;
-
+/
 --Added EXECUTE grants for can_user_review to admin and user roles only
 GRANT EXECUTE ON can_user_review TO ecom_app_admin;
 GRANT EXECUTE ON can_user_review TO ecom_app_user;
