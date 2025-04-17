@@ -1,4 +1,4 @@
--- View 13: Order Payment Summary View
+-- View 11: Order Payment Summary View
 CREATE OR REPLACE VIEW order_payment_summary_view AS
 SELECT 
     o.OrderID,
