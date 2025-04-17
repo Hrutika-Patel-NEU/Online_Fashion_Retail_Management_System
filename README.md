@@ -333,7 +333,6 @@ Online_Fashion_Retail_Management_System/
 ├── DDL/  
 ├── DFD_Diagrams/   
 ├── DML/
-├── DML/   
 ├── Reports/ 
 ├── Triggers/
 ├── Functions/
