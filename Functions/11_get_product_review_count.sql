@@ -15,7 +15,7 @@ EXCEPTION
     WHEN OTHERS THEN
         RETURN 0;
 END;
-
+/
 --Added EXECUTE grants for get_product_review_count to all users (admin, user, report, guest)
 GRANT EXECUTE ON get_product_review_count TO ecom_app_admin;
 GRANT EXECUTE ON get_product_review_count TO ecom_app_user;

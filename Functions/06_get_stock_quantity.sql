@@ -33,7 +33,7 @@ EXCEPTION
     WHEN TOO_MANY_ROWS THEN
         RAISE_APPLICATION_ERROR(-20005, 'Duplicate product variation found.');
 END;
-
+/
 --Added EXECUTE grants for get_stock_quantity to admin, user, and report roles
 GRANT EXECUTE ON get_stock_quantity TO ecom_app_admin;
 GRANT EXECUTE ON get_stock_quantity TO ecom_app_user;
