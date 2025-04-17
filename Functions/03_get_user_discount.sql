@@ -23,3 +23,7 @@ EXCEPTION
     WHEN TOO_MANY_ROWS THEN
         RAISE_APPLICATION_ERROR(-20003, 'Multiple tier entries found.');
 END;
+
+--Added EXECUTE grants for get_user_discount to admin and user roles only
+GRANT EXECUTE ON get_user_discount TO ecom_app_admin;
+GRANT EXECUTE ON get_user_discount TO ecom_app_user;
