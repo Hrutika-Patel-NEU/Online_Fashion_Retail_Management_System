@@ -152,7 +152,152 @@ The following SQL views have been created to support reporting, analysis, and fe
 
 - `Admin_all_reviews_with_product_and_customer_info`  
   Admin-level view to monitor all reviews with full user and product context.
+---
+## ⚙️ Triggers Overview
 
+The following trigger scripts are used to enforce business rules, automate actions, and maintain audit trails in the system:
+
+- `01_CreatedAt_and_UpdatedAt_Triggers_For_Users.sql`  
+  Creates trigger for auto timestamping in `USERS` table.
+
+- `02_CreatedAt_and_UpdatedAt_Triggers_For_Usertiers.sql`  
+  Creates trigger for timestamp management in `USERTIERS`.
+- `03_CreatedAt_and_UpdatedAt_Triggers_For_Products.sql`  
+Adds trigger for tracking create/update times in `PRODUCTS`.
+- `04_CreatedAt_and_UpdatedAt_Triggers_For_Productvariations.sql`  
+Maintains audit fields for `PRODUCTVARIATIONS`.
+- `05_CreatedAt_and_UpdatedAt_Triggers_For_Productimages.sql`  
+Adds created/updated timestamps to `PRODUCTIMAGES`.
+- `06_CreatedAt_and_UpdatedAt_Triggers_For_Sizeoptions.sql`  
+Trigger to track changes in `SIZEOPTIONS`.
+- `07_CreatedAt_and_UpdatedAt_Triggers_For_Orders.sql`  
+Ensures `ORDERS` table captures timestamps correctly.
+- `08_CreatedAt_and_UpdatedAt_Triggers_For_Orderlineitems.sql`  
+Applies timestamp automation to `ORDERLINEITEMS`.
+- `09_CreatedAt_and_UpdatedAt_Triggers_For_Address.sql`  
+Manages audit fields for `ADDRESS` table.
+- `10_CreatedAt_and_UpdatedAt_Triggers_For_Shoppingcart.sql`  
+Tracks timestamp changes in `SHOPPINGCART`.
+- `11_CreatedAt_and_UpdatedAt_Triggers_For_Reviews.sql`  
+Creates audit triggers for `REVIEWS`.
+- `12_CreatedAt_and_UpdatedAt_Triggers_For_Brands.sql`  
+Trigger for timestamps on `BRANDS` table.
+- `13_CreatedAt_and_UpdatedAt_Triggers_For_Productattributes.sql`  
+Timestamp tracking for `PRODUCTATTRIBUTES`.
+- `14_CreatedAt_and_UpdatedAt_Triggers_For_Productattributevalues.sql`  
+Audit fields trigger for attribute values.
+- `15_CreatedAt_and_UpdatedAt_Triggers_For_Productattributemapping.sql`  
+Trigger for mapping table timestamps.
+- `16_CreatedAt_and_UpdatedAt_Triggers_For_Productcategories.sql`  
+Timestamp updates on category changes.
+- `17_CreatedAt_and_UpdatedAt_Triggers_For_Colors.sql`  
+Auto audit fields for `COLORS` table.
+- `18_Check_Stock_Before_Order.sql`  
+Prevents orders if product stock is insufficient.
+- `19_Update_Stock_On_Order.sql`  
+Deducts stock when an order is placed.
+- `20_Collapse_Duplicate_Cart_Entries.sql`  
+Merges duplicate cart entries into one.
+- `21_Prevent_Add_Unavailable_Products.sql`  
+Restricts adding unavailable items to cart.
+- `22_Require_Image_Before_Publishing.sql`  
+Ensures products have an image before publishing.
+- `23_Apply_User_Tier_Discount.sql`  
+Automatically applies discount based on user tier.
+- `24_Update_User_Tier_After_Checkout.sql`  
+Updates user tier after successful checkout.
+- `25_Verified_Buyer_Only.sql`  
+Allows review submission only from verified buyers.
+- `26_One_Review_Per_User_Product.sql`  
+Restricts users to one review per product.
+---
+## PL/SQL Business Logic Functions
+
+This directory contains all **PL/SQL functions** used in the **Online Fashion Retail Management System** project. These functions encapsulate core business logic for features like dynamic pricing, inventory tracking, customer discounts, order validation, and user interaction.
+
+---
+
+### 📦 Overview
+
+Each function in this folder is written under the `ERETAILER_DBA` schema and is designed to be:
+- **Modular** – handles one specific logic
+- **Reusable** – used across multiple modules (cart, order, product, review)
+- **Easy to maintain** – isolated from core DDL and DML
+
+---
+
+### 🔧 Function Descriptions
+
+| Function Name                             | Purpose |
+|-------------------------------------------|---------|
+| `get_current_price`                       | Returns the price of a product variation (identified by color and size). |
+| `is_product_available`                    | Checks if a variation is in stock and marked as available. |
+| `get_user_discount`                       | Returns applicable discount % for a user based on their tier. |
+| `calculate_discounted_price`              | Calculates final price after applying discount rate. |
+| `can_user_review`                         | Validates if a user has purchased a product before reviewing it. |
+| `get_stock_quantity`                      | Fetches available stock for a specific variation. |
+| `get_user_full_name`                      | Returns a user's full name (`FIRSTNAME LASTNAME`). |
+| `get_cart_total`                          | Computes user's cart total with applied discounts. |
+| `get_average_rating`                      | Returns average product rating from verified reviews. |
+| `get_user_order_count`                    | Returns the total number of orders by a user. |
+| `get_product_review_count`                | Returns the total number of reviews for a product. |
+| `get_top_selling_product_in_category`     | Returns the product with the highest sales in a given category. |
+
+---
+
+### 🛠️ Usage
+
+All functions are called using:
+
+```sql
+SELECT function_name(parameters) FROM dual;
+```
+## 📊 Reports Overview
+
+The following report scripts generate analytical summaries and insights from the retail system database:
+
+- `01_Order_Summary_By_User_Tier.sql`  
+Summarizes total orders and revenue by user tier.
+
+- `02_Shipping_Address_Usage_Frequency.sql`  
+Displays how frequently different shipping addresses are used.
+
+- `03_Discount_Utilization_Report.sql`  
+Analyzes usage patterns of discount codes across transactions.
+
+- `04_Customer_Lifetime_Value_Report.sql`  
+Calculates the total lifetime value of each customer based on their purchases.
+
+- `05_Most_Reviewed_Products_Report.sql`  
+Lists products with the highest number of reviews and their average rating.
+
+--------
+## 🛠️ Standalone Procedures Overview
+
+The following SQL stored procedures have been created to support core system logic, enforce business rules, and ensure data integrity across key features:
+
+
+- `SP_APPLY_USER_TIER_DISCOUNT`  
+  Calculates a discounted price for a user based on their user tier's discount rate.
+
+- `SP_CHECK_STOCK_BEFORE_ORDER`  
+  Validates that the requested quantity of a product variation is available before proceeding with an order.
+
+- `SP_COLLAPSE_DUPLICATE_CART_ITEMS`  
+  Consolidates duplicate shopping cart items by summing their quantities and removing extras.
+
+- `SP_ONE_REVIEW_PER_PRODUCT_USER`  
+  Ensures that a user can only submit one review per product, raising an error if a review already exists.
+
+- `SP_REQUIRE_IMAGE_BEFORE_PUBLISH`  
+  Blocks publishing of a product variation unless at least one image is attached.
+
+- `SP_UPDATE_STOCK_ON_ORDER`  
+  Deducts stock quantity from a product variation upon ordering and updates the timestamp.
+
+- `SP_VERIFIED_BUYER_ONLY_REVIEW`  
+  Allows only users who have purchased a product to submit a review, enforcing verified buyer logic.
+---
 ## 🛠️ Tools & Technologies
 
 - **Database**: Oracle SQL
@@ -258,9 +403,12 @@ If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, fe
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
 ├── DFD_Diagrams/   
-├── DML/ 
 ├── Packages/
 ├── Procedures/              
+├── DML/
+├── Reports/ 
+├── Triggers/
+├── Functions/
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -275,6 +423,15 @@ Online_Fashion_Retail_Management_System/
 
 - `DML/`   
 ▸ Contains all **DML (Data Manipulation Language)** scripts for inserting, updating, deleting, and merging data into the database tables.
+- `Reports/`   
+▸ Contains report generation scripts and queries that summarize or analyze key data metrics. Useful for business insights, audits, and monitoring.
+
+- `Triggers/`  
+  ▸ Holds all database trigger scripts used to automate actions or enforce rules during data changes (e.g., insert, update, delete). Ensures data integrity and rule compliance.
+
+- `PLSQL_Functions/`  
+▸ Contains all **PL/SQL function scripts** used in the system.  
+Each script implements reusable business logic such as price calculation, stock checks, discount handling, user review validation, and analytics queries.  
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
@@ -301,4 +458,11 @@ Online_Fashion_Retail_Management_System/
 | Dhruv Baraiya             | 002306624               |
 | Adarsh Akhouri            | 002300127               |
 | Vishwesh GopiKrishnan     | 002309454               |
+---
+
+
+## 📌 Presentation Link
+
+https://www.canva.com/design/DAGgWGzLm8k/pAwzEjxao6ahFF_Rll_L3w/edit?utm_content=DAGgWGzLm8k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ---

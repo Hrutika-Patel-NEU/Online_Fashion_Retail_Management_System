@@ -1,4 +1,4 @@
--- View 9: User Saved Addresses View
+-- View 8: User Saved Addresses View
 CREATE OR REPLACE VIEW user_saved_addresses_view AS
 SELECT 
     u.UserID,
