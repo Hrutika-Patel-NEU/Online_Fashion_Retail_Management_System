@@ -37,3 +37,5 @@ CREATE OR REPLACE PACKAGE product_mgmt_pkg IS
   );
 END product_mgmt_pkg;
 /
+
+GRANT EXECUTE ON product_mgmt_pkg TO ecom_app_admin;

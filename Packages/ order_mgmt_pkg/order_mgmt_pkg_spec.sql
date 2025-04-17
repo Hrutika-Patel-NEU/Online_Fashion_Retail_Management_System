@@ -8,3 +8,6 @@ CREATE OR REPLACE PACKAGE order_mgmt_pkg IS
   );
 END order_mgmt_pkg;
 /
+
+GRANT EXECUTE ON order_mgmt_pkg TO ecom_app_user;
+GRANT EXECUTE ON order_mgmt_pkg TO ecom_app_admin;
