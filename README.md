@@ -272,6 +272,32 @@ Calculates the total lifetime value of each customer based on their purchases.
 Lists products with the highest number of reviews and their average rating.
 
 --------
+## 🛠️ Standalone Procedures Overview
+
+The following SQL stored procedures have been created to support core system logic, enforce business rules, and ensure data integrity across key features:
+
+
+- `SP_APPLY_USER_TIER_DISCOUNT`  
+  Calculates a discounted price for a user based on their user tier's discount rate.
+
+- `SP_CHECK_STOCK_BEFORE_ORDER`  
+  Validates that the requested quantity of a product variation is available before proceeding with an order.
+
+- `SP_COLLAPSE_DUPLICATE_CART_ITEMS`  
+  Consolidates duplicate shopping cart items by summing their quantities and removing extras.
+
+- `SP_ONE_REVIEW_PER_PRODUCT_USER`  
+  Ensures that a user can only submit one review per product, raising an error if a review already exists.
+
+- `SP_REQUIRE_IMAGE_BEFORE_PUBLISH`  
+  Blocks publishing of a product variation unless at least one image is attached.
+
+- `SP_UPDATE_STOCK_ON_ORDER`  
+  Deducts stock quantity from a product variation upon ordering and updates the timestamp.
+
+- `SP_VERIFIED_BUYER_ONLY_REVIEW`  
+  Allows only users who have purchased a product to submit a review, enforcing verified buyer logic.
+---
 ## 🛠️ Tools & Technologies
 
 - **Database**: Oracle SQL
