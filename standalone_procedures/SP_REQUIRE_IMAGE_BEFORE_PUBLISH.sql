@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE sp_require_image_before_publish (
+create or replace PROCEDURE sp_require_image_before_publish (
   p_variationid IN PRODUCTVARIATIONS.VARIATIONID%TYPE  -- ID of the product variation
 ) IS
   v_count NUMBER;  -- Variable for the number of images
