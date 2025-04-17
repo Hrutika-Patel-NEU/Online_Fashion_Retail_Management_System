@@ -387,6 +387,17 @@ If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, fe
   - **Username**: `ERetailer_DBA`
   - **Password**: `ERetailerDBA#123`
 - Execute `User_Creation_Grants.sql` to create the required users and grant necessary permissions.
+- Run the SQL scripts in the following order:
+1. `ERetailer_Admin_Creation.sql`
+2. `User_Creation_Grants.sql`
+3. `DDL/`
+4. `DDL/Views/`
+5. `Triggers/`
+6. `DML/`
+7. `Functions/`
+8. `Packages/`
+9. `Procedures/`
+10. `Reports/`
 - Create all database tables by executing the SQL files in the correct sequence as provided in the table creation directory.
 - Login as the appropriate user depending on your access needs using the credentials below:
 
@@ -402,36 +413,51 @@ If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, fe
 ```
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
-├── DFD_Diagrams/   
-├── Packages/
-├── Procedures/              
+├── DFD/
 ├── DML/
+├── Functions/
+├── Packages/ 
+├── Procedures/ 
 ├── Reports/ 
 ├── Triggers/
-├── Functions/
-├── ERetailer_Admin Creation.sql  
-├── Logical_Model.pdf         
-├── Physical_Model.pdf        
+├── Business_Rules.pdf
+├── Conceptual_Model.pdf
+├── ERetailer_Admin Creation.sql
+├── Logical_Model.pdf  
+├── Physical_Model.pdf      
 ├── README.md                     
 ├── User_Creation_Grants.sql
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
 
-- `DFD_Diagrams/`   
+- `DFD/`   
   ▸ Contains all **Data Flow Diagrams (DFDs)** representing the logical flow of data across key modules such as Customer Onboarding, Order Management, Inventory, Payment, Product Management, and Reporting.
 
 - `DML/`   
 ▸ Contains all **DML (Data Manipulation Language)** scripts for inserting, updating, deleting, and merging data into the database tables.
+
+- `Functions/`  
+▸ Contains all **function scripts** used in the system.  
+Each script implements reusable business logic such as price calculation, stock checks, discount handling, user review validation, and analytics queries.  
+
+- `Packages/`  
+  ▸ Contains all **PL/SQL package scripts**. These scripts define reusable modules of related procedures and functions that encapsulate business logic and system utilities.
+
+- `Procedures/`  
+  ▸ Contains all **standalone PL/SQL procedures**. Each script performs a specific operation such as generating reports, handling updates, processing transactions, or enforcing business workflows.
+
 - `Reports/`   
 ▸ Contains report generation scripts and queries that summarize or analyze key data metrics. Useful for business insights, audits, and monitoring.
 
 - `Triggers/`  
   ▸ Holds all database trigger scripts used to automate actions or enforce rules during data changes (e.g., insert, update, delete). Ensures data integrity and rule compliance.
 
-- `PLSQL_Functions/`  
-▸ Contains all **PL/SQL function scripts** used in the system.  
-Each script implements reusable business logic such as price calculation, stock checks, discount handling, user review validation, and analytics queries.  
+- `Business_Rules.pdf`  
+  ▸ Contains detailed documentation of all **business rules** applied across the system including user permissions, product constraints, order workflows, and data validation logic.
+
+- `Conceptual_Model.pdf`  
+  ▸ Presents the **high-level entity-relationship model** (ERD) showing the key entities and their relationships before physical implementation. Useful for understanding the overall data architecture and flow.
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.

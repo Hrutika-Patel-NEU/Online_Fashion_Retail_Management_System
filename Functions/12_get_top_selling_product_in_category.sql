@@ -26,7 +26,7 @@ EXCEPTION
     WHEN OTHERS THEN
         RETURN NULL;
 END;
-
+/
 --Added EXECUTE grants for get_top_selling_product_in_category to admin and report roles only
 GRANT EXECUTE ON get_top_selling_product_in_category TO ecom_app_admin;
 GRANT EXECUTE ON get_top_selling_product_in_category TO ecom_app_report_user;

@@ -15,7 +15,7 @@ EXCEPTION
     WHEN OTHERS THEN
         RETURN 0;
 END;
-
+/
 --Added EXECUTE grants for get_user_order_count to admin, user, and report roles
 GRANT EXECUTE ON get_user_order_count TO ecom_app_admin;
 GRANT EXECUTE ON get_user_order_count TO ecom_app_user;

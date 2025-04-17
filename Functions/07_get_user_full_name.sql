@@ -17,7 +17,7 @@ EXCEPTION
     WHEN TOO_MANY_ROWS THEN
         RAISE_APPLICATION_ERROR(-20006, 'Multiple users found with same ID.');
 END;
-
+/
 --Added EXECUTE grants for get_user_full_name to admin, user, and report roles
 GRANT EXECUTE ON get_user_full_name TO ecom_app_admin;
 GRANT EXECUTE ON get_user_full_name TO ecom_app_user;
