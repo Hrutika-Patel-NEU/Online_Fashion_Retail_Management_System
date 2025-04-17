@@ -211,13 +211,13 @@ Allows review submission only from verified buyers.
 - `26_One_Review_Per_User_Product.sql`  
 Restricts users to one review per product.
 ---
-# 🧠 PL/SQL Business Logic Functions
+## PL/SQL Business Logic Functions
 
 This directory contains all **PL/SQL functions** used in the **Online Fashion Retail Management System** project. These functions encapsulate core business logic for features like dynamic pricing, inventory tracking, customer discounts, order validation, and user interaction.
 
 ---
 
-## 📦 Overview
+### 📦 Overview
 
 Each function in this folder is written under the `ERETAILER_DBA` schema and is designed to be:
 - **Modular** – handles one specific logic
@@ -226,7 +226,7 @@ Each function in this folder is written under the `ERETAILER_DBA` schema and is 
 
 ---
 
-## 🔧 Function Descriptions
+### 🔧 Function Descriptions
 
 | Function Name                             | Purpose |
 |-------------------------------------------|---------|
@@ -245,7 +245,7 @@ Each function in this folder is written under the `ERETAILER_DBA` schema and is 
 
 ---
 
-## 🛠️ Usage
+### 🛠️ Usage
 
 All functions are called using:
 
