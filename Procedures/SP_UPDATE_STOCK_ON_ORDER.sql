@@ -13,3 +13,6 @@ BEGIN
   -- Success message
   DBMS_OUTPUT.PUT_LINE('Stock updated successfully.');
 END;
+/
+
+GRANT EXECUTE ON SP_UPDATE_STOCK_ON_ORDER TO ecom_app_admin;

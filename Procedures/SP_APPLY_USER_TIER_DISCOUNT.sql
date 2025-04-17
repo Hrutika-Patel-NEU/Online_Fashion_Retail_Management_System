@@ -13,3 +13,6 @@ BEGIN
   -- Return the price after applying the discount
   RETURN p_price - (p_price * v_discount / 100);
 END;
+/
+
+GRANT EXECUTE ON SP_APPLY_USER_TIER_DISCOUNT TO ecom_app_admin;
