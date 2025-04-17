@@ -31,4 +31,19 @@ BEGIN
   );
 END;
 /
+BEGIN
+  product_mgmt_pkg.sp_add_product_image(
+    p_variationid => 2,
+    p_imageurl    => 'https://cdn.shop.com/images/linen-shirt-front.jpg'
+  );
+END;
+/
+BEGIN
+  product_mgmt_pkg.sp_add_attribute_mapping(
+    p_productid => 50,
+    p_valueid   => 3
+  );
+END;
+/
+
 

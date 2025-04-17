@@ -100,6 +100,56 @@ END sp_add_variation;
     WHEN OTHERS THEN
       RAISE_APPLICATION_ERROR(-20022, 'Unexpected error: ' || SQLERRM);
   END sp_update_product;
+  
+  PROCEDURE sp_add_product_image (
+    p_variationid      IN PRODUCTIMAGES.VARIATIONID%TYPE,
+    p_imageurl         IN PRODUCTIMAGES.PRODUCTIMAGEURL%TYPE
+  ) IS
+    v_dummy NUMBER;
+  BEGIN
+    -- Validate variation exists
+    SELECT 1 INTO v_dummy FROM PRODUCTVARIATIONS WHERE VARIATIONID = p_variationid;
+
+    INSERT INTO PRODUCTIMAGES (
+      PRODUCTIMAGEID,VARIATIONID, PRODUCTIMAGEURL, CREATEDAT, UPDATEDAT
+    ) VALUES (
+      PRODUCTIMAGE_SEQ.NEXTVAL, p_variationid, p_imageurl, SYSTIMESTAMP, SYSTIMESTAMP
+    );
+
+    DBMS_OUTPUT.PUT_LINE('Image added successfully.');
+
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      RAISE_APPLICATION_ERROR(-20041, 'Variation does not exist.');
+    WHEN OTHERS THEN
+      RAISE_APPLICATION_ERROR(-20042, 'Unexpected error: ' || SQLERRM);
+  END sp_add_product_image;
+  
+  PROCEDURE sp_add_attribute_mapping (
+    p_productid        IN PRODUCTATTRIBUTEMAPPING.PRODUCTID%TYPE,
+    p_valueid          IN PRODUCTATTRIBUTEMAPPING.VALUEID%TYPE
+  ) IS
+    v_dummy NUMBER;
+  BEGIN
+    -- Validate existence of product and attribute value
+    SELECT 1 INTO v_dummy FROM PRODUCTS WHERE PRODUCTID = p_productid;
+    SELECT 1 INTO v_dummy FROM PRODUCTATTRIBUTEVALUES WHERE VALUEID = p_valueid;
+
+    INSERT INTO PRODUCTATTRIBUTEMAPPING (
+      PRODUCTID, VALUEID, CREATEDAT, UPDATEDAT
+    ) VALUES (
+      p_productid, p_valueid, SYSTIMESTAMP, SYSTIMESTAMP
+    );
+
+    DBMS_OUTPUT.PUT_LINE('Attribute mapping created successfully.');
+
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      RAISE_APPLICATION_ERROR(-20051, 'Invalid Product or Attribute Value.');
+    WHEN OTHERS THEN
+      RAISE_APPLICATION_ERROR(-20052, 'Unexpected error: ' || SQLERRM);
+  END sp_add_attribute_mapping;
+
 
 END product_mgmt_pkg;
 /
