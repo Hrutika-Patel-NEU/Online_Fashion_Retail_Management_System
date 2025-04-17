@@ -414,8 +414,6 @@ If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, fe
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
 ├── DFD/
-├── Packages/
-├── Procedures/
 ├── DML/
 ├── Functions/
 ├── Packages/ 
