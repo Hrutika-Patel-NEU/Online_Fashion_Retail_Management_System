@@ -1,10 +1,9 @@
--- 01_Order_Summary_By_User_Tier.sql
--- Displays the number of orders and total revenue aggregated by user tier using a PL/SQL cursor
+-- 01_Order_Summary_By_User_Tier_Procedure.sql
+-- Procedure: ORDER_SUMMARY_BY_TIER_REPORT
+-- Purpose: Displays the number of orders and total revenue aggregated by user tier.
+-- Access Control: EXECUTE permission granted to ECOM_APP_REPORT_USER and ECOM_APP_ADMIN.
 
-SET SERVEROUTPUT ON;
-
-DECLARE
-    -- Cursor to fetch order summary grouped by user tier
+CREATE OR REPLACE PROCEDURE "ERETAILER_DBA"."ORDER_SUMMARY_BY_TIER_REPORT" AS
     CURSOR order_summary_cursor IS
         SELECT
             T.TIERNAME,
@@ -17,22 +16,18 @@ DECLARE
         GROUP BY T.TIERNAME
         ORDER BY TOTAL_REVENUE DESC;
 
-    -- Variables to hold fetched data
     v_tiername         "ERETAILER_DBA"."USERTIERS".TIERNAME%TYPE;
     v_order_count      NUMBER;
     v_total_revenue    NUMBER;
 BEGIN
-    -- Open the cursor
     OPEN order_summary_cursor;
 
-    -- Loop through the fetched records and display them
     LOOP
         FETCH order_summary_cursor 
         INTO v_tiername, v_order_count, v_total_revenue;
 
         EXIT WHEN order_summary_cursor%NOTFOUND;
 
-        -- Display tier details and order summary
         DBMS_OUTPUT.PUT_LINE(
             'Tier: ' || v_tiername || ', ' ||
             'Orders: ' || v_order_count || ', ' ||
@@ -40,7 +35,11 @@ BEGIN
         );
     END LOOP;
 
-    -- Close the cursor
     CLOSE order_summary_cursor;
 END;
 /
+
+-- Grant EXECUTE to both admin and report roles
+GRANT EXECUTE ON "ERETAILER_DBA"."ORDER_SUMMARY_BY_TIER_REPORT" TO "ECOM_APP_REPORT_USER";
+GRANT EXECUTE ON "ERETAILER_DBA"."ORDER_SUMMARY_BY_TIER_REPORT" TO "ECOM_APP_ADMIN";
+

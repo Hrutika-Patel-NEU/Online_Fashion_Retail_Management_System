@@ -1,5 +1,5 @@
--- View 12: Product Variation View
-CREATE OR REPLACE VIEW product_variation_view AS
+-- View 3: Low Stock Alert View
+CREATE OR REPLACE VIEW low_stock_alert_view AS
 SELECT 
     v.VariationID,
     p.ProductName,
@@ -9,4 +9,5 @@ SELECT
 FROM ProductVariations v
 JOIN Products p ON v.ProductID = p.ProductID
 JOIN Colors c ON v.ColorID = c.ColorID
-JOIN SizeOptions s ON v.SizeID = s.SizeID;
+JOIN SizeOptions s ON v.SizeID = s.SizeID
+WHERE v.StockQuantity < 5;

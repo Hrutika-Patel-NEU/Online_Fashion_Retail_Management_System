@@ -1,9 +1,9 @@
--- 04_Customer_Lifetime_Value_Report.sql
--- Calculates lifetime spend and order count for each user
+-- 04_Customer_Lifetime_Value_Report_Procedure.sql
+-- Procedure: CUSTOMER_LIFETIME_VALUE_REPORT
+-- Purpose: Calculates lifetime spend and order count for each user.
+-- Access Control: EXECUTE permission granted to ECOM_APP_REPORT_USER and ECOM_APP_ADMIN.
 
-SET SERVEROUTPUT ON;
-
-DECLARE
+CREATE OR REPLACE PROCEDURE "ERETAILER_DBA"."CUSTOMER_LIFETIME_VALUE_REPORT" AS
     CURSOR clv_cursor IS
         SELECT
             U.USERID,
@@ -41,3 +41,7 @@ BEGIN
     CLOSE clv_cursor;
 END;
 /
+
+-- Grant EXECUTE to admin and report user roles
+GRANT EXECUTE ON "ERETAILER_DBA"."CUSTOMER_LIFETIME_VALUE_REPORT" TO "ECOM_APP_REPORT_USER";
+GRANT EXECUTE ON "ERETAILER_DBA"."CUSTOMER_LIFETIME_VALUE_REPORT" TO "ECOM_APP_ADMIN";

@@ -1,4 +1,4 @@
--- View 8: Customer Reviews View
+-- View 7: Customer Reviews View
 CREATE OR REPLACE VIEW customer_reviews_view AS
 SELECT 
     r.ReviewID,
