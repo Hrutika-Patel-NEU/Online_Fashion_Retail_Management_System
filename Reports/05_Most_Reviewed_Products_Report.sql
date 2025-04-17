@@ -1,9 +1,9 @@
--- 05_Most_Reviewed_Products_Report.sql
--- Displays products with the most reviews and their average rating
+-- 05_Most_Reviewed_Products_Report_Procedure.sql
+-- Procedure: MOST_REVIEWED_PRODUCTS_REPORT
+-- Purpose: Displays products with the most reviews and their average rating.
+-- Access Control: EXECUTE permission granted to ECOM_APP_REPORT_USER and ECOM_APP_ADMIN.
 
-SET SERVEROUTPUT ON;
-
-DECLARE
+CREATE OR REPLACE PROCEDURE "ERETAILER_DBA"."MOST_REVIEWED_PRODUCTS_REPORT" AS
     CURSOR review_cursor IS
         SELECT
             P.PRODUCTID,
@@ -40,3 +40,6 @@ BEGIN
 END;
 /
 
+-- Grant EXECUTE to admin and report user roles
+GRANT EXECUTE ON "ERETAILER_DBA"."MOST_REVIEWED_PRODUCTS_REPORT" TO "ECOM_APP_REPORT_USER";
+GRANT EXECUTE ON "ERETAILER_DBA"."MOST_REVIEWED_PRODUCTS_REPORT" TO "ECOM_APP_ADMIN";
