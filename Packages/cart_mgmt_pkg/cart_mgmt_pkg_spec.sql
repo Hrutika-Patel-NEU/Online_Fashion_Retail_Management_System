@@ -11,3 +11,6 @@ CREATE OR REPLACE PACKAGE cart_mgmt_pkg IS
   );
 END cart_mgmt_pkg;
 /
+
+GRANT EXECUTE ON cart_mgmt_pkg TO ecom_app_user;
+GRANT EXECUTE ON cart_mgmt_pkg TO ecom_app_admin;
