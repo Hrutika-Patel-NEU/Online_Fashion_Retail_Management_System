@@ -1,3 +1,7 @@
+GRANT EXECUTE ON get_current_price TO ecom_app_admin;
+GRANT EXECUTE ON get_current_price TO ecom_app_user;
+GRANT EXECUTE ON get_current_price TO ecom_app_report_user;
+GRANT EXECUTE ON get_current_price TO ecom_app_guest_user;
 create or replace FUNCTION get_current_price(
     p_product_id IN PRODUCTS.PRODUCTID%TYPE,
     p_color_name IN COLORS.COLORNAME%TYPE,
