@@ -330,7 +330,6 @@ Manages product images and attribute mappings.
 
 #### `CART_MGMT_PKG`
 Handles logic for shopping cart interactions.
-- `sp_add_to_cart`: Adds or updates items in the user’s cart.
 - `sp_remove_from_cart`: Removes an item from the cart.
 
 #### `ORDER_MGMT_PKG`
