@@ -57,7 +57,7 @@ Modern e-commerce platforms often suffer from:
 - Email and Phone Number must be **unique** and follow valid formats.
 - User Role must be one of the following:
    - `Admin`: Full system management.
-   - `Standard User`: Can shop and place orders.
+   - `Standard User`: Can place orders, manage cart, addresses, reviews
    - `Business Analytics User`: Read-only access to data and reports.
    - `Guest User`: Limited access, browsing only.
 - A user cannot register multiple times with the same email or phone number.
@@ -162,6 +162,77 @@ The following SQL views have been created to support reporting, analysis, and fe
 
 ---
 
+## 📦 Packages & Procedures
+
+The system’s business logic is modularized using **PL/SQL packages and standalone procedures**. Each package encapsulates related functionality for separation of concerns, ease of maintenance, and secure execution.
+
+---
+
+### ✅ Packages
+
+#### `USER_MGMT_PKG`
+Handles all operations related to user registration and profile management.
+- `sp_register_user`: Registers a new user after validating uniqueness.
+- `sp_update_user`: Updates user information.
+- `sp_inactivate_user`: Marks a user as inactive (soft delete).
+- `sp_activate_user`: Reactivates an inactive user.
+- `sp_add_address`: Adds a new shipping/billing address for a user.
+
+#### `PRODUCT_MGMT_PKG`
+Manages product images and attribute mappings.
+- `sp_add_product_image`: Adds an image to a specific product variation.
+- `sp_add_attribute_mapping`: Links attribute values to products for filtering.
+
+#### `CART_MGMT_PKG`
+Handles logic for shopping cart interactions.
+- `sp_add_to_cart`: Adds or updates items in the user’s cart.
+- `sp_remove_from_cart`: Removes an item from the cart.
+
+#### `ORDER_MGMT_PKG`
+Processes orders and manages line item entries.
+- `sp_place_order`: Places an order and clears the cart.
+- `sp_place_order_without_tier_upgrade`: Order placement excluding tier logic.
+- `sp_insert_order_line_items`: Handles line item creation and stock updates.
+
+#### `REVIEW_MGMT_PKG`
+Manages customer review logic.
+- `sp_submit_review`: Submits a product review after validations.
+- `sp_get_reviews_for_product`: Fetches reviews for a given product.
+
+#### `REPORT_PKG`
+Used by analytics users for generating reports and summaries.
+- `sp_customer_order_summary`
+- `sp_product_inventory_report`
+- `sp_top_selling_products`
+- `sp_low_stock_alerts`
+- `sp_admin_all_orders`
+
+---
+
+### 🛠️ Standalone Procedures
+
+#### `sp_apply_user_tier_discount`
+Calculates discounted price based on the user’s tier.
+
+#### `sp_check_stock_before_order`
+Validates if requested stock is available before placing order.
+
+#### `sp_require_image_before_publish`
+Enforces that each product variation must have at least one image before going live.
+
+#### `sp_verified_buyer_only_review`
+Restricts review submission to users who have purchased the product.
+
+#### `sp_one_review_per_product_user`
+Prevents duplicate reviews from the same user on the same product.
+
+#### `sp_update_stock_on_order`
+Deducts the correct quantity from stock after an order is placed.
+
+---
+
+If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, feel free to link them or include filenames. Let me know if you'd like help writing that part too.
+
 ## 🚀 Project Setup
 
 - Clone the repository using `git clone https://github.com/Hrutika-Patel-NEU/Online_Fashion_Retail_Management_System.git` and navigate into the folder.
@@ -187,12 +258,14 @@ The following SQL views have been created to support reporting, analysis, and fe
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
 ├── DFD_Diagrams/   
-├── DML/               
+├── DML/ 
+├── Packages/
+├── Procedures/              
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
 ├── README.md                     
-├── User_Creation_Grants.sql 
+├── User_Creation_Grants.sql
 ```
 - `DDL/`  
   ▸ Contains all **DDL (Data Definition Language)** scripts for creating tables, constraints, indexes, and views.
