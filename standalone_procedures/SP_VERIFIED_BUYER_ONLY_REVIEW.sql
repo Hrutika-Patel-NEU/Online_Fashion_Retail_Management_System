@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE sp_verified_buyer_only_review (
+create or replace PROCEDURE sp_verified_buyer_only_review (
   p_userid    IN USERS.USERID%TYPE,       --  ID of the user
   p_productid IN PRODUCTS.PRODUCTID%TYPE  --  ID of the product
 ) IS
