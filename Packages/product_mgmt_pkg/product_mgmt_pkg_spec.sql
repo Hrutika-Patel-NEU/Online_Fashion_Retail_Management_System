@@ -25,5 +25,15 @@ CREATE OR REPLACE PACKAGE product_mgmt_pkg IS
     p_materialdetails  IN PRODUCTS.MATERIALDETAILS%TYPE,
     p_careinstructions IN PRODUCTS.CAREINSTRUCTIONS%TYPE
   );
+  
+  PROCEDURE sp_add_product_image (
+    p_variationid      IN PRODUCTIMAGES.VARIATIONID%TYPE,
+    p_imageurl         IN PRODUCTIMAGES.PRODUCTIMAGEURL%TYPE
+  );
+  
+  PROCEDURE sp_add_attribute_mapping (
+    p_productid        IN PRODUCTATTRIBUTEMAPPING.PRODUCTID%TYPE,
+    p_valueid          IN PRODUCTATTRIBUTEMAPPING.VALUEID%TYPE
+  );
 END product_mgmt_pkg;
 /
