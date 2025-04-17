@@ -23,3 +23,7 @@ BEGIN
   -- Log success message
   DBMS_OUTPUT.PUT_LINE('Duplicate cart entries collapsed successfully.');
 END;
+/
+
+GRANT EXECUTE ON SP_COLLAPSE_DUPLICATE_CART_ITEMS TO ecom_app_user;
+GRANT EXECUTE ON SP_COLLAPSE_DUPLICATE_CART_ITEMS TO ecom_app_admin;

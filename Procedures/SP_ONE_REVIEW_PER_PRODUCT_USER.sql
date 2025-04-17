@@ -18,3 +18,7 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('No existing review. Allowed to review.');
   END IF;
 END;
+/
+
+GRANT EXECUTE ON SP_ONE_REVIEW_PER_PRODUCT_USER TO ecom_app_user;
+GRANT EXECUTE ON SP_ONE_REVIEW_PER_PRODUCT_USER TO ecom_app_admin;

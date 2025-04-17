@@ -16,3 +16,6 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Variation has images: ' || v_count);
   END IF;
 END;
+/
+
+GRANT EXECUTE ON SP_REQUIRE_IMAGE_BEFORE_PUBLISH TO ecom_app_admin;

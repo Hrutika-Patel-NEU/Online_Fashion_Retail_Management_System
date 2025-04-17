@@ -18,3 +18,6 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Stock is available: ' || v_stock);
   END IF;
 END;
+/
+
+GRANT EXECUTE ON SP_CHECK_STOCK_BEFORE_ORDER TO ecom_app_admin;
