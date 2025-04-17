@@ -361,3 +361,10 @@ Each script implements reusable business logic such as price calculation, stock 
 | Adarsh Akhouri            | 002300127               |
 | Vishwesh GopiKrishnan     | 002309454               |
 ---
+
+
+## 📌 Presentation Link
+
+https://www.canva.com/design/DAGgWGzLm8k/pAwzEjxao6ahFF_Rll_L3w/edit?utm_content=DAGgWGzLm8k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+---
