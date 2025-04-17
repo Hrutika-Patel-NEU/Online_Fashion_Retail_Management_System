@@ -1,7 +1,3 @@
-GRANT EXECUTE ON get_current_price TO ecom_app_admin;
-GRANT EXECUTE ON get_current_price TO ecom_app_user;
-GRANT EXECUTE ON get_current_price TO ecom_app_report_user;
-GRANT EXECUTE ON get_current_price TO ecom_app_guest_user;
 create or replace FUNCTION get_current_price(
     p_product_id IN PRODUCTS.PRODUCTID%TYPE,
     p_color_name IN COLORS.COLORNAME%TYPE,
@@ -43,3 +39,9 @@ EXCEPTION
     WHEN TOO_MANY_ROWS THEN
         RAISE_APPLICATION_ERROR(-20002, 'Multiple rows found for unique lookup.');
 END;
+
+--Added EXECUTE grants for get_current_price to all users (admin, user, report, guest)
+GRANT EXECUTE ON get_current_price TO ecom_app_admin;
+GRANT EXECUTE ON get_current_price TO ecom_app_user;
+GRANT EXECUTE ON get_current_price TO ecom_app_report_user;
+GRANT EXECUTE ON get_current_price TO ecom_app_guest_user;
