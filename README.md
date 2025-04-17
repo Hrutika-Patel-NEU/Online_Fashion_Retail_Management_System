@@ -376,8 +376,6 @@ Deducts the correct quantity from stock after an order is placed.
 
 ---
 
-If you're tracking folders like `Packages/`, `Procedures/`, or `Standalone/`, feel free to link them or include filenames. Let me know if you'd like help writing that part too.
-
 ## 🚀 Project Setup
 
 - Clone the repository using `git clone https://github.com/Hrutika-Patel-NEU/Online_Fashion_Retail_Management_System.git` and navigate into the folder.
