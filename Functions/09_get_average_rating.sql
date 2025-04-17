@@ -17,3 +17,9 @@ EXCEPTION
     WHEN OTHERS THEN
         RETURN -1; -- flag unexpected issues
 END;
+
+--Added EXECUTE grants for get_average_rating to all users (admin, user, report, guest)
+GRANT EXECUTE ON get_average_rating TO ecom_app_admin;
+GRANT EXECUTE ON get_average_rating TO ecom_app_user;
+GRANT EXECUTE ON get_average_rating TO ecom_app_report_user;
+GRANT EXECUTE ON get_average_rating TO ecom_app_guest_user;
