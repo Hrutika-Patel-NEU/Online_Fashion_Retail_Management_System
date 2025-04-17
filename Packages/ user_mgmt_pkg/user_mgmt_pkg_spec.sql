@@ -28,3 +28,8 @@ CREATE OR REPLACE PACKAGE user_mgmt_pkg IS
 
 END user_mgmt_pkg;
 /
+
+
+-- Grant Permissions (after package is compiled)
+GRANT EXECUTE ON user_mgmt_pkg TO ecom_app_user;
+GRANT EXECUTE ON user_mgmt_pkg TO ecom_app_admin;

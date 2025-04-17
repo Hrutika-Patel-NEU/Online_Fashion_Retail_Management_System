@@ -7,3 +7,6 @@ CREATE OR REPLACE PACKAGE review_mgmt_pkg IS
   );
 END review_mgmt_pkg;
 /
+
+GRANT EXECUTE ON review_mgmt_pkg TO ecom_app_user;
+GRANT EXECUTE ON review_mgmt_pkg TO ecom_app_admin;
