@@ -25,3 +25,7 @@ EXCEPTION
     WHEN OTHERS THEN
         RAISE_APPLICATION_ERROR(-20007, 'Error calculating cart total');
 END;
+
+--Added EXECUTE grants for get_cart_total to admin and user roles only
+GRANT EXECUTE ON get_cart_total TO ecom_app_admin;
+GRANT EXECUTE ON get_cart_total TO ecom_app_user;
