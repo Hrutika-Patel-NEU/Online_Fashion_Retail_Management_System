@@ -152,7 +152,6 @@ The following SQL views have been created to support reporting, analysis, and fe
 
 - `Admin_all_reviews_with_product_and_customer_info`  
   Admin-level view to monitor all reviews with full user and product context.
-
 ---
 ## ⚙️ Triggers Overview
 
@@ -212,6 +211,47 @@ Allows review submission only from verified buyers.
 - `26_One_Review_Per_User_Product.sql`  
 Restricts users to one review per product.
 ---
+# 🧠 PL/SQL Business Logic Functions
+
+This directory contains all **PL/SQL functions** used in the **Online Fashion Retail Management System** project. These functions encapsulate core business logic for features like dynamic pricing, inventory tracking, customer discounts, order validation, and user interaction.
+
+---
+
+## 📦 Overview
+
+Each function in this folder is written under the `ERETAILER_DBA` schema and is designed to be:
+- **Modular** – handles one specific logic
+- **Reusable** – used across multiple modules (cart, order, product, review)
+- **Easy to maintain** – isolated from core DDL and DML
+
+---
+
+## 🔧 Function Descriptions
+
+| Function Name                             | Purpose |
+|-------------------------------------------|---------|
+| `get_current_price`                       | Returns the price of a product variation (identified by color and size). |
+| `is_product_available`                    | Checks if a variation is in stock and marked as available. |
+| `get_user_discount`                       | Returns applicable discount % for a user based on their tier. |
+| `calculate_discounted_price`              | Calculates final price after applying discount rate. |
+| `can_user_review`                         | Validates if a user has purchased a product before reviewing it. |
+| `get_stock_quantity`                      | Fetches available stock for a specific variation. |
+| `get_user_full_name`                      | Returns a user's full name (`FIRSTNAME LASTNAME`). |
+| `get_cart_total`                          | Computes user's cart total with applied discounts. |
+| `get_average_rating`                      | Returns average product rating from verified reviews. |
+| `get_user_order_count`                    | Returns the total number of orders by a user. |
+| `get_product_review_count`                | Returns the total number of reviews for a product. |
+| `get_top_selling_product_in_category`     | Returns the product with the highest sales in a given category. |
+
+---
+
+## 🛠️ Usage
+
+All functions are called using:
+
+```sql
+SELECT function_name(parameters) FROM dual;
+```
 ## 📊 Reports Overview
 
 The following report scripts generate analytical summaries and insights from the retail system database:
@@ -266,9 +306,11 @@ Lists products with the highest number of reviews and their average rating.
 Online_Fashion_Retail_Management_System/
 ├── DDL/  
 ├── DFD_Diagrams/   
+├── DML/
 ├── DML/   
 ├── Reports/ 
-├── Triggers/             
+├── Triggers/
+├── Functions/
 ├── ERetailer_Admin Creation.sql  
 ├── Logical_Model.pdf         
 ├── Physical_Model.pdf        
@@ -288,6 +330,10 @@ Online_Fashion_Retail_Management_System/
 
 - `Triggers/`  
   ▸ Holds all database trigger scripts used to automate actions or enforce rules during data changes (e.g., insert, update, delete). Ensures data integrity and rule compliance.
+
+- `PLSQL_Functions/`  
+▸ Contains all **PL/SQL function scripts** used in the system.  
+Each script implements reusable business logic such as price calculation, stock checks, discount handling, user review validation, and analytics queries.  
 
 - `ERetailer_Admin Creation.sql`  
   ▸ SQL script to create an **admin user** with necessary privileges for managing the retail system.
