@@ -48,3 +48,7 @@ EXCEPTION
     WHEN TOO_MANY_ROWS THEN
         RAISE_APPLICATION_ERROR(-20002, 'Multiple records found unexpectedly.');
 END;
+GRANT EXECUTE ON is_product_available TO ecom_app_admin;
+GRANT EXECUTE ON is_product_available TO ecom_app_user;
+GRANT EXECUTE ON is_product_available TO ecom_app_report_user;
+GRANT EXECUTE ON is_product_available TO ecom_app_guest_user;
